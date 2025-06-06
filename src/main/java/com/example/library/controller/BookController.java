@@ -28,8 +28,12 @@ public class BookController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Book>> getAllBooks() {
+    public ResponseEntity<List<Book> getAllBooks() {
         return ResponseEntity.ok(bookService.getAllBooks());
+    }
+    @GetMapping("/booksBasedOnRating)
+    public ResponseEntity<List<Book> getAllBooksBasedOnRating(@RequestParam double rating){
+        return ResponseEntity.ok(bookService.getAllBooksBasedOnRating());
     }
 
     @DeleteMapping("/{id}")
